@@ -8,6 +8,7 @@ The topic of Cybersecurity is expansive, I'm trying to build out this repository
 * [Fundamentals](#Fundamentals)
 * [Encryption](#Encryption)
 * [Networking](#Networking)
+* [Databases](#Databases)
 * [Forensics](#Forensics)
 * [Nmap](#Nmap)
 * [Terms/Glossary](#Terms)
@@ -18,42 +19,52 @@ The topic of Cybersecurity is expansive, I'm trying to build out this repository
 Open Web Application Security Project (OWASP) releases a list of the top 10 most seen vulnerabilities every couple of years. You can refer to the most current list here: [OWASP Website Top 10](https://owasp.org/www-project-top-ten/)
 
 1. **Injection** 
-	2. SQL, NoSQL, OS, and LDAP injection when it’s sent to the interpreter as part of the query 
+
+	* SQL, NoSQL, OS, and LDAP injection when it’s sent to the interpreter as part of the query 
 Execute unintended commands or accessing data without proper authorization
 2. **Broken Authentication** 
-	3. Authentication and session management are implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens
-	4. Or an attacker is able to take over a users’ identity 
+
+	* Authentication and session management are implemented incorrectly, allowing attackers to compromise passwords, keys, or session tokens
+	*  Or an attacker is able to take over a users’ identity 
 
 3. **Sensitive Data Exposure** 
-	4. APIs don't’ really protect sensitive data (financial, healthcare, PII) 
-	5. Should have encryption in place in rest, transit 
+	
+	*  APIs don't’ really protect sensitive data (financial, healthcare, PII) 
+	*  Should have encryption in place in rest, transit 
 
 4. **XML External Entities (XEE)**
-	5. 	External Entities can be used to disclose internal files using the URI handler, internal file shares, internal port scanning, remote code execution, and denial of service attacks
+
+	* 	External Entities can be used to disclose internal files using the URI handler, internal file shares, internal port scanning, remote code execution, and denial of service attacks
 5. **Broken Access Control**
-	6. Restrictions on what authenticated users are allowed to do 
-	7. View sensitive files, modify another user’s data, change access rights
+
+	* Restrictions on what authenticated users are allowed to do 
+	* View sensitive files, modify another user’s data, change access rights
 
 6. **Security Misconfiguration**
-	7. Most commonly seen issue 
-	8. Using default configurations, incomplete/ad hoc configurations, open cloud storage, or misconfigured HTTP headers 
-	9. Systems should be patched and upgraded in a timely fashion 
+
+	* Most commonly seen issue 
+	* Using default configurations, incomplete/ad hoc configurations, open cloud storage, or misconfigured HTTP headers 
+	* Systems should be patched and upgraded in a timely fashion 
 
 7. **Cross-Site Scripting XSS** 
-	8. When an application includes untrusted data in a web page without validation/escaping 
-	9. Allows attackers to execute scripts in the victim’s browser where their session can be hijacked, deface websites, or redirect the user to a malicious site
+
+	* When an application includes untrusted data in a web page without validation/escaping 
+	* Allows attackers to execute scripts in the victim’s browser where their session can be hijacked, deface websites, or redirect the user to a malicious site
 
 8. **Insecure Deserialization**
-	9. Leads to remote code execution 
-	10. Can lead to replay attacks, injection attacks, and privilege escalation attacks 
+
+	* Leads to remote code execution 
+	* Can lead to replay attacks, injection attacks, and privilege escalation attacks 
 
 9. **Using Components with Known Vulnerabilities**
-	10. Using libraries and components with known vulnerabilities 
-	11. Make sure to keep them up to date
+
+	* Using libraries and components with known vulnerabilities 
+	* Make sure to keep them up to date
 
 10. **Insufficient Logging & Monitoring**
-	11. Insufficient logging and monitoring with missing/ineffective integration of incident response allows attackers to further attack systems 
-	12. Should be able to have your own systems detect that there has been a breach rather than an external entity finding out about it 
+
+	* Insufficient logging and monitoring with missing/ineffective integration of incident response allows attackers to further attack systems 
+	* Should be able to have your own systems detect that there has been a breach rather than an external entity finding out about it 
 
 
 ## Encryption 
@@ -77,9 +88,9 @@ Execute unintended commands or accessing data without proper authorization
 
 ### AAA 
 
-* **Authentication** - Act of verifying a person 
-* **Authorization** 
-* **Accounting** 
+Authentication, Authorization, and Accounting
+
+System for tracking user activities on an IP-based network and controlling their access to network resources. Typically it's implemented as a dedicated server. 
 
 ### Other Fundamentals 
 
@@ -140,6 +151,20 @@ Execute unintended commands or accessing data without proper authorization
 
 ### 3-Way Handshake
 
+The 3-Way Handshake is part of the TCP. 
+
+![](imgs/Handshake.png)
+
+* Provides reliable communication with PAR (Positive Acknowledgement with Re-transmission)
+	* Will continue to send the data until it receives an acknowledgement that the packet was received
+
+1.  SYN - Synchronize Sequence Number 
+	*  Informs the server that the client wants to start communication
+2.  SYN + ACK - (ACK = Acknowledgement)
+	*  Server acknowledges that the connection request was received and sends an acknowledgement 
+3. ACK - final part where the client acknowledges the response of the server and the reliable connection is established 
+
+Source: [GeeksforGeeks](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/)
 
 ### Other Networking Questions 
 
@@ -167,6 +192,21 @@ Execute unintended commands or accessing data without proper authorization
 		* Packet-Switched Connections - connect to provider's network, traffic is affected by others 
 		* Cell-Switched Connections - unit size of data being sent if a fixed cell, it's more efficient with dealing w/ traffic loads 
 
+## Databases	
+
+* Prevention against SQL Injection Attacks
+	* Input Validation - escape characters, and sanitize 
+	* Dynamic SQL - don't let the user's query execute, use prepared statements, parameterized queries, or store procedures instead 
+	* Update and patch - make sure it's all up to date 
+	* Firewall - can help filter out malicious data 
+	* Reduce your attack surface - disable any features/functionality that you don't need to prevent an attacker from taking advantage of it 
+	* Checking privileges - make sure that the user has the privileges required to execute the query 
+	* Logging/Monitoring 
+
+Sources: 
+
+* [Prevention against SQL Injection](https://www.esecurityplanet.com/threats/how-to-prevent-sql-injection-attacks/)
+* [OWASP Injection CheatSheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
 ## Forensics 
 
 * What are the 3 types of investigations and what are the differences between them? 
@@ -194,4 +234,10 @@ Network Mapper ([Nmap](https://nmap.org/)) is used for network discovery, I'm no
 * **CSMA/CD** - Carrier-Sense multiple access with collision detection 
 	* How network devices respond when there are 2 devices that attempt to use the same data channel at the same time 
 	* If a collision occurs, a jam signal is sent 
+* **CSRF** - Cross Site Request Forgery
 * **DHCP** - Dynamic Host Configuration Protocol
+* **XXE** - XML External Entity
+
+
+## Sources 
+
