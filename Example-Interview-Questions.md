@@ -1,11 +1,53 @@
 # Example Interview Questions 
 
+## What happens when you type something into a search bar and hit "enter"? 
+
+1. The DNS (Domain Name system) converts the plain text into an IP address 
+	* DNS - stores a table between the URL and IP address (kind of like a phonebook)
+	* Order: 
+		*  Browser Cache 
+		*  OS Cache 
+		*  Router Cache 
+		*  ISP (Internet Service Provider) Cache 
+2. If URL is not in cache, then ISP DNS server initiates a DNS query to find the IP address of the server that hosts the website 
+3. Browser initiates a TCP connection with the requested website server (3 Way Handshake)
+4. After the connection has been established, the browser will send an HTTP request to the web server
+5. Server handles the request and sends back a response in the specified format (JSON, XML, HTML) along with a status code 
+	6. Response Codes Explained 
+		7. 1XX - Informational 
+		8. 2XX - Success 
+		9. 3XX - Redirect
+		10. 4XX - Error on Client End 
+		11. 5XX - Error on Server End 
+7. Browser receives the information and displays it
+
+Source [Maneesha Wijesinghe's Medium Article](https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a)
+
+## What is HSTS 
+
+HTTP Strict Transport Security - mechanism that protects websites against protocol downgrade attacks and cookie hijacking. Can enforce web browsers to only use HTTPS connections. 
+
+This is done by using the header `Strict-Transport-Security`. The information that's included along with this header is **max-age** and **includeSubDomains**.
+
+Ex: `Strict-Transport-Security: max-age=31536000 ; includeSubDomains`
+
+Source: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+
 ## Encryption and Authentication
 
-* What is a three-way handshake?
 * How do cookies work?
+	* Cookies are used to track website activity, it acts as your "ID Card" 
+	* Small bits of information that a website stores on your computer 
+	* Commonly used for online shopping to know what items you've added to your cart, etc.  
+	* There are 2 different types: session & non-persistent cookie 
 * How do sessions work?
-* Explain how OAuth works.
+	* Server-side storage information that is desired to be persistent throughout the user's interaction with the website
+* Explain how OAuth works. This information is stored with the session id 
+	* OAuth is an open-standard auth protocol/framework that provides applications the ability for "secure designated access". Provides authorization tokens to prove an identity between consumers and service providers. Allows you to approve an application interacting with another on your behalf without giving away your password. 
+		* Ex: Log in with Google, Apple, Facebook, etc. 
+	* There are 3 players: user, consumer, service provider 
+		* Consumer = The website that you're trying to log into 
+		* Service Provider = Facebook, Google, (the website that you're already authenticated to/have an account for)
 * What is a public key infrastructure flow and how would I diagram it?
 * Describe the difference between synchronous and asynchronous encryption.
 * Describe SSL handshake.
@@ -61,13 +103,6 @@
 * How do you harden a system?
 * How to you elevate permissions?
 
-## OWASP Top 10
-
-* Differentiate XSS from CSRF.
-* What do you do if a user brings you a pc that is acting 'weird'? You suspect malware.
-* What is the difference between tcp dump and FWmonitor
-* Do you know what XXE is?
-* Explain man-in-the-middle attacks
 
 ## Databases
 
@@ -105,9 +140,24 @@
 
 ## Compliance
 
-* Can you explain SOC 2?
-  * What are the five trust criteria?
-* How is ISO27001 different?
+* Explain SOC 2?
+	* Auditing procedure that ensures that your service providers security manage your data to protect the interests of your organization and the privacy of its clients 
+	* Minimum level of requirement when considering a SaaS provider
+* What are the five trust criteria of SOC 2?
+	1. Security - system is protected from unauthorized access 
+	2. Availability - system is available for operation as determined by SLA 
+	3. Processing Integrity - system processing is complete, accurate, timely, and authorized 
+	4. Confidentiality - information designated as confidential is protected and committed/agreed 
+	5. Privacy - personal information is collected, used, retained, disclosed, and destroyed with the criteria set in Generally Accepted Privacy Principles (GAPP)
+
+* How is ISO27001 different from SOC 2?
+	* 	ISO wants you to provide proof that you have an ISMS (Information Security Management System) in place to manage InfoSec Program on an ongoing basis
+	*  
 * Can you list examples of controls these frameworks require?
 * What is the difference between Governance, Risk and Compliance?  
 * What does Zero Trust mean?
+
+
+## Sources 
+
+[Tad Whitaker's List of Questions](https://github.com/tadwhitaker/Security_Engineer_Interview_Questions/blob/master/security-interview-questions)
