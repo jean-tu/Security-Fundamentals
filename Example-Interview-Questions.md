@@ -13,13 +13,14 @@
 3. Browser initiates a TCP connection with the requested website server (3 Way Handshake)
 4. After the connection has been established, the browser will send an HTTP request to the web server
 5. Server handles the request and sends back a response in the specified format (JSON, XML, HTML) along with a status code 
-	6. Response Codes Explained 
-		7. 1XX - Informational 
-		8. 2XX - Success 
-		9. 3XX - Redirect
-		10. 4XX - Error on Client End 
-		11. 5XX - Error on Server End 
-7. Browser receives the information and displays it
+
+	*  Response Codes Explained 
+		*  1XX - Informational 
+		*  2XX - Success 
+		*  3XX - Redirect
+		*  4XX - Error on Client End 
+		*  5XX - Error on Server End 
+6. Browser receives the information and displays it
 
 Source [Maneesha Wijesinghe's Medium Article](https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a)
 
