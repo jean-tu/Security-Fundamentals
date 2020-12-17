@@ -81,9 +81,9 @@ Execute unintended commands or accessing data without proper authorization
 
 ![](imgs/CIATriad.png)
 
-* **Confidentiality** 
-* **Integrity** 
-* **Availability** 
+* **Confidentiality** - ensuring that sensitive data is access only by an authorized user 
+* **Integrity** - data integrity (that it hasn't been modified improperly)
+* **Availability** - ensure that the data/resources are available to users when it's needed
 
 
 ### AAA 
@@ -166,6 +166,28 @@ The 3-Way Handshake is part of the TCP.
 
 Source: [GeeksforGeeks](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/)
 
+### Important Ports to Take Note of 
+
+| Port Number  | Port Function  |
+|---|---|
+|  21 |  FTP - File Transfer Protocol |
+|  22 |  SSH - Secure Shell|
+|  23 |  Telnet |
+|  25 |  SMTP |
+|  53 |  DNS |
+|  80 |  HTTP |
+|  110 | POP3  |
+|  111 | RPCBind  |
+|  143 | IMAP  |
+|  443 | HTTPS  |
+|  3306 | MYSQL  |
+|  8080 | HTTP Proxy  |
+|   |   |
+|   |   |
+|   |   |
+
+Source: [Top Scanned Ports](https://securitytrails.com/blog/top-scanned-ports)
+
 ### Other Networking Questions 
 
 * What's the difference between a static & dynamic IP address? 
@@ -173,6 +195,14 @@ Source: [GeeksforGeeks](https://www.geeksforgeeks.org/tcp-3-way-handshake-proces
 	* **Static IP** - manually assigned by the user/system admin
 * What is a Gateway? 
 	* Single point in a network that connects to the public Internet
+* What is SSL? 
+	* Secure Sockets Layer - encrypts connection between the web server and the web browser
+* What does the green lock on a website mean? 
+	* Green Lock means that your browser is able to verify that the web site that you are visiting has been verified by a 3rd party certificate authority (so they are who they say they are, it's not a malicious website that you've been re-routed to) 
+	* Uses port 443 vs port 80
+* What is the difference between SSL and TLS? 
+	* SSL - helps you track the person that you're communicating with 
+	* TLS - creates a secure channel between the two clients 
 
 ### Networking Terminology 
 
@@ -218,6 +248,9 @@ Sources:
 * What are the **golden rules of digital forensics?**
 	* **Protect and Preserve the evidence** - an exact copy must be made of the original digital media (forensic image)
 	* **Always assume the case will go to court** - keeping track of an asset (chain of custody), and matching cryptographic hashes for original evidence and forensic image
+* What is ARP? 
+	* Address Resolution Protocol 
+	* Used for associating a MAC address with an IPv4 Address 
 	
 ## Nmap 
 
@@ -236,6 +269,9 @@ Network Mapper ([Nmap](https://nmap.org/)) is used for network discovery, I'm no
 	* If a collision occurs, a jam signal is sent 
 * **CSRF** - Cross Site Request Forgery
 * **DHCP** - Dynamic Host Configuration Protocol
+* **Salt** - adding more characters to something to make it more secure 
+* **WAF** - Web Application Firewall 
+	* used to help filter incoming and outgoing traffic 
 * **XXE** - XML External Entity
 
 

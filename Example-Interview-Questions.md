@@ -24,6 +24,24 @@
 
 Source [Maneesha Wijesinghe's Medium Article](https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a)
 
+## How does a port scan work? 
+
+Program sends a network request to connect to a specific TCP/UDP port and records the response. 
+
+There are 3 different types of statuses: 
+
+1. **Open/Accepted** - computer responds and asks if there's anything it can do for you 
+2. **Closed/Not Listening** - computer says that the port is in use/unavailable 
+3. **Filtered/Dropped/Blocked** - computer doesn't respond
+
+Source [Port Scanning Techniques Varonis](https://www.varonis.com/blog/port-scanning-techniques/)
+
+## What is XSS? 
+
+XSS = Cross Site Scripting 
+
+This happens when there's a network vulnerability and malicious scripts are injected to websites.
+
 ## What is HSTS 
 
 HTTP Strict Transport Security - mechanism that protects websites against protocol downgrade attacks and cookie hijacking. Can enforce web browsers to only use HTTPS connections. 
@@ -33,6 +51,8 @@ This is done by using the header `Strict-Transport-Security`. The information th
 Ex: `Strict-Transport-Security: max-age=31536000 ; includeSubDomains`
 
 Source: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-headers/)
+
+
 
 ## Encryption and Authentication
 
@@ -56,12 +76,34 @@ Source: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-head
     * Why HMAC is designed in that way?
 * What is the difference between authentication vs authorization name spaces?
 * What’s the difference between Diffie-Hellman and RSA?
+	* Diffie-Helman is the protocol used when exchanging keies between 2 parties
+	* RSA is an algorithms that works when there are 2 sets of keys (private and public key) 
 * How does Kerberos work?
+	* Kerberos uses symmetric key cryptography and requires a trusted third-party authorization to verify user identities 
+	* Steps: 
+
+		1. Client requests an authentication ticket (TGT) from Key Distribution Center (KDC) 
+		2. KDC verifies the credentials and sends back an encrypted TGT and session key 
+		3. TGT is encrypted using Ticket Granting Service (TGS) secret key 
+		4. Client stores TGT and when it expires, the local session manager will request another TGT (but the user won't notice this happening in the background
+ 
 * If you're going to compress and encrypt a file, which do you do first and why?
-* What is the difference between encryption and encoding?
+	* You want to compress the file first because if you encrypt it first the data won't be compressable
+* What is the difference between encryption, encoding, hashing, and obfuscation?
+	* **Encryption** - maintains data *confidentiality* and requires the use of a key to return the data into plaintext 
+		*	Ex: AES, Blowfish, RSA	
+	* **Encoding** - maintains data *usability* and can be reversed using the same encoding algorithm (no key required)
+		*  Ex: ASCII, Unicode, URL Encoding, Base64
+	* **Hashing** - validates the *integrity* of the content by detecting if a modification has been made 
+		* Ex: SHA-4, MD5
+	* **Obfuscation** - to prevent people from understanding the meaning of something
 * What is the difference between 128 and 256?
 * How do I authenticate you and know you sent the message?
 * Should you encrypt all data at rest?
+* Examples of Symmetric Encryption algorithms? 
+	* Blowfish 
+	* AES
+	* DES 	
 
 ## Network Level
 
@@ -103,6 +145,12 @@ Source: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-head
 * How do you build a tool to protect the entire Apple infra?
 * How do you harden a system?
 * How to you elevate permissions?
+* What is IP & MAC Address? 
+	* IP Address (Internet Protocol Address) - used to uniquely identify computer/device on a network 
+	* MAC Address (Media Access Control Address) - used to uniquely identify network interfaces for communication on the physical layer of the network
+* Describe the 2 different types of honeypots
+	* Research honeypot - used by educational institutions and organizations to research motives and tactics of black hat hackers 
+	* Production honeypot - used by companies to capture real information for the administrator to access vulnerabilities. They're generally placed within the network to deter hackers from infiltrating the "real" stuff.
 
 
 ## Databases
@@ -161,4 +209,5 @@ Source: [OWASP Secure Headers Project](https://owasp.org/www-project-secure-head
 
 ## Sources 
 
-[Tad Whitaker's List of Questions](https://github.com/tadwhitaker/Security_Engineer_Interview_Questions/blob/master/security-interview-questions)
+* [Tad Whitaker's List of Questions](https://github.com/tadwhitaker/Security_Engineer_Interview_Questions/blob/master/security-interview-questions)
+* [Guru 99 Cybersecurity Questions](https://www.guru99.com/cyber-security-interview-questions.html)
