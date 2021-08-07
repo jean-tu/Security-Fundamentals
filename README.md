@@ -158,11 +158,12 @@ The 3-Way Handshake is part of the TCP.
 * Provides reliable communication with PAR (Positive Acknowledgement with Re-transmission)
 	* Will continue to send the data until it receives an acknowledgement that the packet was received
 
-1.  SYN - Synchronize Sequence Number 
+1.  **SYN - Synchronize Sequence Number**
 	*  Informs the server that the client wants to start communication
-2.  SYN + ACK - (ACK = Acknowledgement)
+2.  **SYN + ACK - (ACK = Acknowledgement)**
 	*  Server acknowledges that the connection request was received and sends an acknowledgement 
-3. ACK - final part where the client acknowledges the response of the server and the reliable connection is established 
+3. **ACK** - message that terminates the connection
+	* final part where the client acknowledges the response of the server and the reliable connection is established 
 
 Source: [GeeksforGeeks](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/)
 
@@ -237,6 +238,8 @@ Sources:
 
 * [Prevention against SQL Injection](https://www.esecurityplanet.com/threats/how-to-prevent-sql-injection-attacks/)
 * [OWASP Injection CheatSheet](https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html)
+
+
 ## Forensics 
 
 * What are the 3 types of investigations and what are the differences between them? 
@@ -260,6 +263,11 @@ Network Mapper ([Nmap](https://nmap.org/)) is used for network discovery, I'm no
 
 * Find the IP address of your Mac: `ipconfig getifaddr en0` 
 * Find the IP address of your PC: `ipconfig`
+
+## Other Resources to Refer to 
+
+* [Security Guide for Developers by FabbileInc](https://github.com/FallibleInc/security-guide-for-developers)
+* [API Security Checklist by shieldfy](https://github.com/shieldfy/API-Security-Checklist)
 
 
 ## Terms 
